@@ -7,11 +7,13 @@
 #include <string>
 
 // INPUT ABSTRACTIONS
-#define INPUT_NONE 0
-#define INPUT_UP	1
-#define INPUT_DOWN	2
-#define INPUT_LEFT	3
-#define INPUT_RIGHT 4
+struct inputs_t
+{
+	bool up;
+	bool down;
+	bool left;
+	bool right;
+};
 
 // VECTOR2
 // X and Y position

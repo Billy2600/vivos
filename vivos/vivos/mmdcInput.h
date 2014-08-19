@@ -12,7 +12,7 @@ class mmdcInput
 public:
 	mmdcInput();
 	
-	// Read input
-	int ReadInput();
+	// Reads input and returns a struct
+	inputs_t ReadInput();
 };
 

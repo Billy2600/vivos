@@ -5,16 +5,17 @@ void mmdcStTitlescreen::Start()
 	
 }
 
-void mmdcStTitlescreen::Update(int dt, int input)
+void mmdcStTitlescreen::Update(int dt, inputs_t inputs)
 {
-	if (input == INPUT_UP)
-		pos.y -= 1 * dt;
-	if (input == INPUT_DOWN)
-		pos.y += 1 * dt;
-	if (input == INPUT_RIGHT)
-		pos.x += 1 * dt;
-	if (input == INPUT_LEFT)
-		pos.x -= 1 * dt;
+	float s = 0.5f;
+	if (inputs.up == true)
+		pos.y -= s * dt;
+	if (inputs.down == true)
+		pos.y += s * dt;
+	if (inputs.right == true)
+		pos.x += s * dt;
+	if (inputs.left == true)
+		pos.x -= s * dt;
 }
 
 void mmdcStTitlescreen::Draw(sf::RenderWindow &window)

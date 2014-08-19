@@ -5,16 +5,22 @@ mmdcInput::mmdcInput()
 {
 }
 
-int mmdcInput::ReadInput()
+inputs_t mmdcInput::ReadInput()
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-		return INPUT_UP;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-		return INPUT_DOWN;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-		return INPUT_LEFT;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-		return INPUT_RIGHT;
+	inputs_t inputs;
+	// Init all inputs to false
+	inputs.up = false; inputs.down = false; inputs.left = false; inputs.right = false;
 
-	return 0;
+	// Check for inputs
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+		inputs.up = true;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+		inputs.down = true;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+		inputs.left = true;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+		inputs.right = true;
+
+	// return struct
+	return inputs;
 }

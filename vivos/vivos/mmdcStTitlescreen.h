@@ -9,11 +9,11 @@ class mmdcStTitlescreen :
 	public mmdcGameState
 {
 private:
-	vec2_t<int> pos;
+	vec2_t<float> pos;
 
 public:
 	void Start();
-	void Update(int dt, int input);
+	void Update(int dt, inputs_t inputs);
 	void Draw(sf::RenderWindow &window);
 	void Stop();
 };

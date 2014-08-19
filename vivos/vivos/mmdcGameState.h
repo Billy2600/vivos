@@ -33,7 +33,7 @@ public:
 	// UPDATE
 	// For game logic; Run every frame
 	// dt stands for Delta Time
-	virtual void Update(int dt, int input) = 0;
+	virtual void Update(int dt, inputs_t inputs) = 0;
 
 	// DRAW
 	// For drawing things out to the screen; Runs every frame after update
