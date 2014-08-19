@@ -72,12 +72,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mmdcInput.cpp" />
     <ClCompile Include="mmdcStTitlescreen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mmdcActor.h" />
     <ClInclude Include="mmdcDataTypes.h" />
     <ClInclude Include="mmdcGameState.h" />
+    <ClInclude Include="mmdcInput.h" />
     <ClInclude Include="mmdcStTitlescreen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

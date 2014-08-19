@@ -2,12 +2,20 @@
 #include <memory>
 #include "mmdcGameState.h"
 #include "mmdcStTitlescreen.h"
+#include "mmdcInput.h"
 
 // MAIN FUNCTION //
 int main()
 {
+	// ====== //
+	//  INIT  //
+	// ====== //
+
 	// Create window
 	sf::RenderWindow window(sf::VideoMode(640, 480), "The Rich and the Dead");
+
+	// Input class
+	mmdcInput input;
 
 	// Create and initialize game state (to title screen)
 	mmdcGameState *currentState;
@@ -19,7 +27,9 @@ int main()
 	clock.restart();
 	int simulationTime = 0; // Simulation time (seperate from 'real' time)
 
+	// ========= //
 	// GAME LOOP //
+	// ========= //
 	while (window.isOpen())
 	{
 		// Get real time
@@ -37,17 +47,18 @@ int main()
 		while (simulationTime < realTime)
 		{
 			simulationTime += 16;
-			currentState->Update(16);
+			currentState->Update(16,input.ReadInput());
 		}
-		
 
 		// Draw
-		window.clear(sf::Color::Black);
-		currentState->Draw(window);
-		window.display();
+		window.clear(sf::Color::Black); // Clear previous frame
+		currentState->Draw(window); // Draw new frame
+		window.display(); // Update window
 	}
 
-	// Clean up
+	// ======== //
+	// CLEAN UP //
+	// ======== //
 	delete currentState;
 	return 0;
 }

@@ -5,6 +5,8 @@
 	===========================================================*/
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <queue>
+#include "mmdcDataTypes.h"
 
 class mmdcGameState
 {
@@ -14,6 +16,7 @@ public:
 	int changeTo; // State we want to change to
 	bool change; // Change state flag
 	bool pause; // Pause logic
+	std::queue<int> *inputQueue; // Pointer to input queue
 
 	// Constructor
 	mmdcGameState()
@@ -24,12 +27,13 @@ public:
 
 	// START
 	// Everything you need to do before you get going
+	// Must be passed input queue
 	virtual void Start() = 0;
 
 	// UPDATE
 	// For game logic; Run every frame
 	// dt stands for Delta Time
-	virtual void Update(int dt) = 0;
+	virtual void Update(int dt, int input) = 0;
 
 	// DRAW
 	// For drawing things out to the screen; Runs every frame after update

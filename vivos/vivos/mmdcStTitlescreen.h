@@ -8,9 +8,12 @@
 class mmdcStTitlescreen :
 	public mmdcGameState
 {
+private:
+	vec2_t<int> pos;
+
 public:
 	void Start();
-	void Update(int dt);
+	void Update(int dt, int input);
 	void Draw(sf::RenderWindow &window);
 	void Stop();
 };
