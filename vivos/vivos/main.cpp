@@ -19,8 +19,7 @@ int main()
 	mmdcInput input;
 
 	// Create and initialize game state (to title screen)
-	mmdcGameState *currentState;
-	currentState = new mmdcStTitlescreen();
+	mmdcGameState *currentState = new mmdcStTitlescreen();
 	currentState->Start();
 
 	// Game timing clock
@@ -61,6 +60,24 @@ int main()
 			simulationTime += 16;
 			if (focus) // Don't update of window is not focused
 				currentState->Update(16,input.ReadInput());
+		}
+
+		// Handle state change
+		if (currentState->change)
+		{
+			// Stop current state
+			currentState->Stop();
+			// Store the new state we want
+			states_t to = currentState->changeTo;
+			// Delete old state
+			delete currentState;
+			// Create new state, based on what we wanted
+			switch (to)
+			{
+			case ST_TITLE:
+				currentState = new mmdcStTitlescreen();
+				break;
+			}
 		}
 
 		// Draw

@@ -15,7 +15,11 @@ void mmdcStTitlescreen::Update(int dt, inputs_t inputs)
 	if (inputs.right == true)
 		pos.x += s * dt;
 	if (inputs.left == true)
-		pos.x -= s * dt;
+		//pos.x -= s * dt;
+	{
+		change = true;
+		changeTo = ST_TITLE;
+	}
 }
 
 void mmdcStTitlescreen::Draw(sf::RenderWindow &window)

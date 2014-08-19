@@ -8,12 +8,15 @@
 #include <queue>
 #include "mmdcDataTypes.h"
 
+// Possible states
+enum states_t { ST_TITLE, ST_GAMEPLAY };
+
 class mmdcGameState
 {
 public:
 
 	// Change state variables
-	int changeTo; // State we want to change to
+	states_t changeTo; // State we want to change to
 	bool change; // Change state flag
 	bool pause; // Pause logic
 	std::queue<int> *inputQueue; // Pointer to input queue
