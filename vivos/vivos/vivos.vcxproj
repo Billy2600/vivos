@@ -67,10 +67,18 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(SolutionDir)\libs\SFML-2.1 vs2013\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-main.lib;sfml-graphics.lib;sfml-audio.lib;sfml-window.lib;sfml-system.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mmdcStTitlescreen.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="mmdcActor.h" />
+    <ClInclude Include="mmdcDataTypes.h" />
+    <ClInclude Include="mmdcGameState.h" />
+    <ClInclude Include="mmdcStTitlescreen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
