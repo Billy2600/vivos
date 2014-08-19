@@ -13,13 +13,13 @@ enum states_t { ST_TITLE, ST_GAMEPLAY };
 
 class mmdcGameState
 {
-public:
-
+protected:
 	// Change state variables
 	states_t changeTo; // State we want to change to
 	bool change; // Change state flag
 	bool pause; // Pause logic
-	std::queue<int> *inputQueue; // Pointer to input queue
+
+public:
 
 	// Constructor
 	mmdcGameState()
@@ -27,6 +27,15 @@ public:
 		change = false;
 		pause = false;
 	}
+
+	// Get change flag
+	bool GetChange() { return change; }
+	// Get state we want to change to
+	states_t GetChangeTo() { return changeTo; }
+	// Get pause state
+	bool GetPause() { return pause; }
+	// Set pause
+	void SetPause(bool pause) { this->pause = pause; }
 
 	// START
 	// Everything you need to do before you get going

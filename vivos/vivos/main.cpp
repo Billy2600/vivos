@@ -63,12 +63,12 @@ int main()
 		}
 
 		// Handle state change
-		if (currentState->change)
+		if (currentState->GetChange())
 		{
 			// Stop current state
 			currentState->Stop();
 			// Store the new state we want
-			states_t to = currentState->changeTo;
+			states_t to = currentState->GetChangeTo();
 			// Delete old state
 			delete currentState;
 			// Create new state, based on what we wanted
