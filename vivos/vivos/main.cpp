@@ -14,9 +14,17 @@ int main()
 	currentState = new mmdcStTitlescreen();
 	currentState->Start();
 
+	// Game timing clock
+	sf::Clock clock;
+	clock.restart();
+	int simulationTime = 0; // Simulation time (seperate from 'real' time)
+
 	// GAME LOOP //
 	while (window.isOpen())
 	{
+		// Get real time
+		int realTime = clock.getElapsedTime().asMilliseconds();
+
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
@@ -24,8 +32,14 @@ int main()
 				window.close();
 		}
 
-		// Update
-		currentState->Update();
+		// Update at constant interval
+		// Credits to Fabien Sanglard
+		while (simulationTime < realTime)
+		{
+			simulationTime += 16;
+			currentState->Update(16);
+		}
+		
 
 		// Draw
 		window.clear(sf::Color::Black);

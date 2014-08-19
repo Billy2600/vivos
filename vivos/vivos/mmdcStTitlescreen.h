@@ -10,7 +10,7 @@ class mmdcStTitlescreen :
 {
 public:
 	void Start();
-	void Update();
+	void Update(int dt);
 	void Draw(sf::RenderWindow &window);
 	void Stop();
 };

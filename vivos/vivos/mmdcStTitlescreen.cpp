@@ -5,7 +5,7 @@ void mmdcStTitlescreen::Start()
 
 }
 
-void mmdcStTitlescreen::Update()
+void mmdcStTitlescreen::Update(int dt)
 {
 
 }

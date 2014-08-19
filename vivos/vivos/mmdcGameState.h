@@ -24,17 +24,16 @@ public:
 
 	// START
 	// Everything you need to do before you get going
-	// We give it the window so it can make adjustments to it
 	virtual void Start() = 0;
 
 	// UPDATE
-	// For game logic
-	// Run every frame
-	virtual void Update() = 0;
+	// For game logic; Run every frame
+	// dt stands for Delta Time
+	virtual void Update(int dt) = 0;
 
 	// DRAW
-	// For drawing things out to the screen
-	// Runs every frame after update
+	// For drawing things out to the screen; Runs every frame after update
+	// Draws to window by reference
 	virtual void Draw(sf::RenderWindow &window) = 0;
 
 	// STOP
