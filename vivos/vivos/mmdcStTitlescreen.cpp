@@ -20,7 +20,7 @@ void mmdcStTitlescreen::Update(int dt, inputs_t inputs)
 
 void mmdcStTitlescreen::Draw(sf::RenderWindow &window)
 {
-	sf::CircleShape shape(100.f);
+	sf::CircleShape shape(50.f);
 	shape.setFillColor(sf::Color::Green);
 	shape.setPosition(sf::Vector2f(pos.x, pos.y));
 	window.draw(shape);

@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <memory>
+#include <iostream>
 #include "mmdcGameState.h"
 #include "mmdcStTitlescreen.h"
 #include "mmdcInput.h"
@@ -34,12 +35,23 @@ int main()
 	{
 		// Get real time
 		int realTime = clock.getElapsedTime().asMilliseconds();
+		std::cout << realTime << std::endl << simulationTime;
+		system("cls");
+
+		// Handle events
+		static bool focus = true; // Whether the window has focus or not
 
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
+			// Close window
 			if (event.type == sf::Event::Closed)
 				window.close();
+			// Gain/lose focus
+			if (event.type == sf::Event::LostFocus)
+				focus = false;
+			if (event.type == sf::Event::GainedFocus)
+				focus = true;
 		}
 
 		// Update at constant interval
@@ -47,7 +59,8 @@ int main()
 		while (simulationTime < realTime)
 		{
 			simulationTime += 16;
-			currentState->Update(16,input.ReadInput());
+			if (focus) // Don't update of window is not focused
+				currentState->Update(16,input.ReadInput());
 		}
 
 		// Draw
