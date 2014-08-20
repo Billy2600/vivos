@@ -29,11 +29,11 @@ public:
 	}
 
 	// Get change flag
-	bool GetChange() { return change; }
+	bool GetChange() const { return change; }
 	// Get state we want to change to
-	states_t GetChangeTo() { return changeTo; }
+	states_t GetChangeTo() const { return changeTo; }
 	// Get pause state
-	bool GetPause() { return pause; }
+	bool GetPause() const { return pause; }
 	// Set pause
 	void SetPause(bool pause) { this->pause = pause; }
 
