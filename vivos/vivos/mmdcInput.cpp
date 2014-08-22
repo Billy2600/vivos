@@ -20,6 +20,8 @@ inputs_t mmdcInput::ReadInput()
 		inputs.left = true;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 		inputs.right = true;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
+		inputs.accept = true;
 
 	// return struct
 	return inputs;

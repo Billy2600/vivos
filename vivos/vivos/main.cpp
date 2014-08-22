@@ -16,10 +16,11 @@ limitations under the License.
 #include <SFML/Graphics.hpp>
 #include <memory>
 #include <iostream>
-#include "mmdcGameState.h"
-#include "mmdcStTitlescreen.h"
 #include "mmdcInput.h"
 #include "mmdcRender.h"
+
+#include "mmdcStTitlescreen.h"
+#include "mmdcStGameplay.h"
 
 // MAIN FUNCTION //
 int main()
@@ -52,8 +53,8 @@ int main()
 	{
 		// Get real time
 		int realTime = clock.getElapsedTime().asMilliseconds();
-		std::cout << realTime << std::endl << simulationTime;
-		system("cls");
+		/*std::cout << realTime << std::endl << simulationTime;
+		system("cls");*/
 
 		// Handle events
 		static bool focus = true; // Whether the window has focus or not
@@ -94,6 +95,9 @@ int main()
 			{
 			case ST_TITLE:
 				currentState = new mmdcStTitlescreen();
+				break;
+			case ST_GAMEPLAY:
+				currentState = new mmdcStGameplay();
 				break;
 			}
 		}

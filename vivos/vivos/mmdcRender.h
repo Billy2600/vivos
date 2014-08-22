@@ -2,6 +2,7 @@
 	Render
 	Renders things to the screen, based on data given from the
 	game logic.
+	Please note that world position Y's are flipped
 	===========================================================*/
 #pragma once
 #include <SFML/Graphics.hpp>
@@ -14,6 +15,8 @@ class mmdcRender
 private:
 	// Convert interal data types to SFML types
 	sf::Color ConvertColor(color_t) const;
+	sf::Vector2f ConvertVecf(vec2_t<float>) const;
+	sf::IntRect ConvertRecti(rect_t<int>) const;
 
 public:
 	mmdcRender();

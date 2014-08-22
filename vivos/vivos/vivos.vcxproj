@@ -73,6 +73,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mmdcStGameplay.cpp" />
     <ClCompile Include="mmdcInput.cpp" />
     <ClCompile Include="mmdcRender.cpp" />
     <ClCompile Include="mmdcStTitlescreen.cpp" />
@@ -80,6 +81,7 @@
   <ItemGroup>
     <ClInclude Include="mmdcActor.h" />
     <ClInclude Include="mmdcDataTypes.h" />
+    <ClInclude Include="mmdcStGameplay.h" />
     <ClInclude Include="mmdcGameState.h" />
     <ClInclude Include="mmdcInput.h" />
     <ClInclude Include="mmdcRender.h" />

@@ -2,7 +2,6 @@
 	Actor
 	Super class for all the actors in the game
 	Each actor has pointers to components it can have
-	This file also contains some component declarations
 	===========================================================*/
 #pragma once
 #include <memory>
@@ -14,23 +13,29 @@ class mmdcActor :
 	public sigslot::has_slots<>
 {
 private:
+
 	// Components
-	std::shared_ptr<drawable_t> cmpSprite; // Sprite
+	std::shared_ptr<drawable_t>		cmpSprite; // Sprite
+	std::shared_ptr<rect_t<int>>	cmpHitbox; // Hitbox
 
 public:
 
+	// Get functions
+	std::shared_ptr<drawable_t> GetSprite() { return cmpSprite; }
+	std::shared_ptr<rect_t<int>> GetHitbox() { return cmpHitbox; }
+
+	// Constructor
 	mmdcActor()
 	{
-		
+		// Init all components to null
+		cmpSprite = NULL;
+		cmpHitbox = NULL;
 	}
 
-	void Test(std::string test)
+	// Event responses
+	void OnInput(inputs_t inputs, int dt)
 	{
-		std::cout << test << std::endl;
-	}
-
-	~mmdcActor()
-	{
+		std::cout << "Actor recived input" << std::endl;
 	}
 };
 

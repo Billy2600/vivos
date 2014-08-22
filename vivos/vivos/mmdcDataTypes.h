@@ -18,6 +18,7 @@ typedef __int32 int32_t;
 // INPUT ABSTRACTIONS
 struct inputs_t
 {
+	bool accept;
 	bool up;
 	bool down;
 	bool left;

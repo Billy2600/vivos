@@ -1,17 +1,20 @@
 /* ============================================================
-	Titlescreen
-	Game state for the title screen
+	Gameplay
+	Game state for the main gameplay
 	===========================================================*/
 #pragma once
-#include <memory>
-#include <iostream>
 #include "mmdcGameState.h"
+#include "mmdcDataTypes.h"
+#include "mmdcActor.h"
+#include "sigslot.h"
 
-
-class mmdcStTitlescreen :
+class mmdcStGameplay :
 	public mmdcGameState
 {
 private:
+	vec2_t<float>					pos;
+	std::shared_ptr<mmdcActor>		testAct;
+	sigslot::signal2<inputs_t, int> testSig;
 
 public:
 	void Start();

@@ -27,6 +27,9 @@
     <ClCompile Include="mmdcRender.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="mmdcStGameplay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mmdcGameState.h">
@@ -48,6 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="sigslot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mmdcStGameplay.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
