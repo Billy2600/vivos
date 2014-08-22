@@ -6,6 +6,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <queue>
+#include <vector>
 #include "mmdcDataTypes.h"
 
 // Possible states
@@ -51,7 +52,7 @@ public:
 	// DRAW
 	// For drawing things out to the screen; Runs every frame after update
 	// Returns array of drawable objects for the Render class to use
-	virtual drawable_t Draw() const = 0;
+	virtual std::vector<drawable_t> Draw() const = 0;
 
 	// STOP
 	// Runs after you change game state or close the program

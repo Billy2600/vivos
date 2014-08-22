@@ -22,17 +22,24 @@ void mmdcStTitlescreen::Update(int dt, inputs_t inputs)
 	}*/
 }
 
-drawable_t mmdcStTitlescreen::Draw() const
+std::vector<drawable_t> mmdcStTitlescreen::Draw() const
 {
-	drawable_t objects[1];
+	std::vector<drawable_t> objects;
+
 	drawable_t box(15);
 	box.pos = this->pos;
 	box.fillColor = color_t(0,255,0,255);
 	box.texPosition = rect_t<int>(86,168,32,32);
+	objects.push_back(box);
 
-	objects[0] = box;
+	drawable_t box2(15);
+	box2.pos.x = this->pos.x + 50;
+	box2.pos.y = this->pos.y + 50;
+	box2.fillColor = color_t(0, 255, 0, 255);
+	box2.texPosition = rect_t<int>(0, 0, 32, 32);
+	objects.push_back(box2);
 
-	return box;
+	return objects;
 }
 
 void mmdcStTitlescreen::Stop()

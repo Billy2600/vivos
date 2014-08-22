@@ -14,7 +14,7 @@ private:
 public:
 	void Start();
 	void Update(int dt, inputs_t inputs);
-	drawable_t Draw() const;
+	std::vector<drawable_t> Draw() const;
 	void Stop();
 };
 

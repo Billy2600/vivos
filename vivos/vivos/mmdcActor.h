@@ -12,12 +12,13 @@ class mmdcActor
 {
 private:
 	// Components
-	drawable_t *cmpSprite; // Sprite
+	std::shared_ptr<drawable_t> cmpSprite; // Sprite
 
 public:
 
 	mmdcActor()
 	{
+		
 	}
 
 	~mmdcActor()

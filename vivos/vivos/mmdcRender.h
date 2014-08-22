@@ -6,6 +6,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <vector>
 #include "mmdcDataTypes.h"
 
 class mmdcRender
@@ -18,7 +19,7 @@ public:
 	mmdcRender();
 
 	// Draw to screen
-	// Must be given array of drawable objects, and the window handler
-	void Draw(drawable_t, sf::RenderWindow &) const;
+	// Must be given vector of drawable objects, and the window handler
+	void Draw(std::vector<drawable_t>, sf::RenderWindow &) const;
 };
 
