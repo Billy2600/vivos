@@ -14,7 +14,7 @@ private:
 public:
 	void Start();
 	void Update(int dt, inputs_t inputs);
-	void Draw(sf::RenderWindow &window);
+	drawable_t Draw() const;
 	void Stop();
 };
 

@@ -19,6 +19,7 @@ limitations under the License.
 #include "mmdcGameState.h"
 #include "mmdcStTitlescreen.h"
 #include "mmdcInput.h"
+#include "mmdcRender.h"
 
 // MAIN FUNCTION //
 int main()
@@ -32,6 +33,8 @@ int main()
 
 	// Input class
 	mmdcInput input;
+	// Render class
+	mmdcRender render;
 
 	// Create and initialize game state (to title screen)
 	mmdcGameState *currentState = new mmdcStTitlescreen();
@@ -97,7 +100,7 @@ int main()
 
 		// Draw
 		window.clear(sf::Color::Black); // Clear previous frame
-		currentState->Draw(window); // Draw new frame
+		render.Draw(currentState->Draw(),window); // Draw new frame
 		window.display(); // Update window
 	}
 

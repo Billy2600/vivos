@@ -45,12 +45,13 @@ public:
 	// UPDATE
 	// For game logic; Run every frame
 	// dt stands for Delta Time
+	// Recieves input from the Input class
 	virtual void Update(int dt, inputs_t inputs) = 0;
 
 	// DRAW
 	// For drawing things out to the screen; Runs every frame after update
-	// Draws to window by reference
-	virtual void Draw(sf::RenderWindow &window) = 0;
+	// Returns array of drawable objects for the Render class to use
+	virtual drawable_t Draw() const = 0;
 
 	// STOP
 	// Runs after you change game state or close the program

@@ -12,7 +12,7 @@ class mmdcActor
 {
 private:
 	// Components
-	sprite_t *cmpSprite;
+	drawable_t *cmpSprite; // Sprite
 
 public:
 
