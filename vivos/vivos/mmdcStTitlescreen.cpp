@@ -2,7 +2,8 @@
 
 void mmdcStTitlescreen::Start()
 {
-	
+	testAct = std::shared_ptr<mmdcActor>(new mmdcActor());
+	testSig.connect(&*testAct, &mmdcActor::Test);
 }
 
 void mmdcStTitlescreen::Update(int dt, inputs_t inputs)
@@ -20,6 +21,8 @@ void mmdcStTitlescreen::Update(int dt, inputs_t inputs)
 		change = true;
 		changeTo = ST_TITLE;
 	}*/
+
+	testSig.emit("Boobs");
 }
 
 std::vector<drawable_t> mmdcStTitlescreen::Draw() const
@@ -44,5 +47,5 @@ std::vector<drawable_t> mmdcStTitlescreen::Draw() const
 
 void mmdcStTitlescreen::Stop()
 {
-
+	
 }

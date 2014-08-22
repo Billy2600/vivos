@@ -6,9 +6,12 @@
 	===========================================================*/
 #pragma once
 #include <memory>
+#include <iostream>
 #include "mmdcDataTypes.h"
+#include "sigslot.h"
 
-class mmdcActor
+class mmdcActor :
+	public sigslot::has_slots<>
 {
 private:
 	// Components
@@ -19,6 +22,11 @@ public:
 	mmdcActor()
 	{
 		
+	}
+
+	void Test(std::string test)
+	{
+		std::cout << test << std::endl;
 	}
 
 	~mmdcActor()

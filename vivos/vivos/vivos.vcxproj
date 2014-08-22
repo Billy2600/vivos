@@ -84,6 +84,7 @@
     <ClInclude Include="mmdcInput.h" />
     <ClInclude Include="mmdcRender.h" />
     <ClInclude Include="mmdcStTitlescreen.h" />
+    <ClInclude Include="sigslot.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
