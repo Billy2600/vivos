@@ -100,6 +100,9 @@ int main()
 				currentState = new mmdcStGameplay();
 				break;
 			}
+
+			// Start new state
+			currentState->Start();
 		}
 
 		// Draw

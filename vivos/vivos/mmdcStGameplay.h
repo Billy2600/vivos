@@ -5,15 +5,14 @@
 #pragma once
 #include "mmdcGameState.h"
 #include "mmdcDataTypes.h"
-#include "mmdcActor.h"
+#include "mmdcActPlayer.h"
 #include "sigslot.h"
 
 class mmdcStGameplay :
 	public mmdcGameState
 {
 private:
-	vec2_t<float>					pos;
-	std::shared_ptr<mmdcActor>		testAct;
+	std::shared_ptr<mmdcActPlayer>	player;
 	sigslot::signal2<inputs_t, int> testSig;
 
 public:

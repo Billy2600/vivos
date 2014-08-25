@@ -29,7 +29,8 @@ void mmdcRender::Draw(std::vector<drawable_t> objects, sf::RenderWindow &window)
 		// Convert to sfml object
 		sf::Sprite sprite;
 		sf::Texture texture;
-		texture.loadFromFile("dopefish.png");
+		// Load texture
+		texture.loadFromFile(objects[i].texFilename);
 		sprite.setTexture(texture);
 		sprite.setColor(ConvertColor(objects[i].fillColor));
 		sprite.setPosition(objects[i].pos.x, -objects[i].pos.y);
