@@ -1,10 +1,18 @@
 /* ============================================================
 	DataTypes
-	Contains declarations for all the custom data types and
-	constants used throughout the game
+	Contains declarations for all the custom data types, enums
+	defines, and constants used throughout the game
 	===========================================================*/
 #pragma once
 #include <string>
+
+// DEFINES
+// Assets folder
+#ifdef WIN32
+#define ASSETS_FOLDER "assets\\" // Windows has to do its directories all stupid
+#else
+#define ASSETS_FOLDER "assets/"
+#endif
 
 // TYPEDEFS
 // Various forms of int, for ease of typing and possibly cross compiling in the future
@@ -15,14 +23,26 @@ typedef unsigned __int8 uint8_t;
 typedef __int16 int16_t;
 typedef __int32 int32_t;
 
+// CARDINAL DIRECTIONS
+enum cardinal_t { N, NE, E, SE, S, SW, W, NW };
+
 // INPUT ABSTRACTIONS
 struct inputs_t
 {
+	// Buttons
 	bool accept;
+
+	// Left 'stick'
 	bool up;
 	bool down;
 	bool left;
 	bool right;
+
+	// Right 'stick'
+	bool rUp;
+	bool rDown;
+	bool rLeft;
+	bool rRight;
 };
 
 // VECTOR2

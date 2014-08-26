@@ -53,8 +53,8 @@ int main()
 	{
 		// Get real time
 		int realTime = clock.getElapsedTime().asMilliseconds();
-		/*std::cout << realTime << std::endl << simulationTime;
-		system("cls");*/
+		std::cout << realTime << std::endl << simulationTime;
+		system("cls");
 
 		// Handle events
 		static bool focus = true; // Whether the window has focus or not
@@ -100,7 +100,9 @@ int main()
 				currentState = new mmdcStGameplay();
 				break;
 			}
-
+			// Reset timers
+			simulationTime = 0;
+			realTime = 0;
 			// Start new state
 			currentState->Start();
 		}
