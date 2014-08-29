@@ -2,30 +2,32 @@
 
 void mmdcStGameplay::Start()
 {
-	player = std::shared_ptr<mmdcActPlayer>(new mmdcActPlayer(0, 0));
-	player2 = std::shared_ptr<mmdcActPlayer>(new mmdcActPlayer(30, -30));
-	events.Register(EV_INPUT, &*player);
+	objects.push_back(std::shared_ptr<mmdcActPlayer>(new mmdcActPlayer(0, 0)));
+	objects.push_back(std::shared_ptr<mmdcActPlayer>(new mmdcActPlayer(100, -100)));
+	events.Register(EV_INPUT, &*objects[0]);
 }
 
 void mmdcStGameplay::Update(int dt, inputs_t inputs)
 {
 	// Send input event
-	events.SendInput(inputs, dt);
+	events.SendInput(inputs);
 
 	// Make objects think
-	player->Think(dt);
-	player2->Think(dt);
-
-	if(player->GetHitbox()->Collision(*player->GetHitbox(), *player2->GetHitbox()))
-		std::cout << "Collision!" << std::endl;
+	for (unsigned int i = 0; i < objects.size(); i++)
+	{
+		objects[i]->Think(dt);
+	}
 }
 
 std::vector<drawable_t> mmdcStGameplay::Draw() const
 {
 	// Add drawable objects to a list
 	std::vector<drawable_t> drawObjs;
-	drawObjs.push_back(*player->GetSprite());
-	drawObjs.push_back(*player2->GetSprite());
+	for (unsigned int i = 0; i < objects.size(); i++)
+	{
+		if (objects[i]->GetSprite() != NULL)
+			drawObjs.push_back(*objects[i]->GetSprite());
+	}
 	// Return list
 	return drawObjs;
 }

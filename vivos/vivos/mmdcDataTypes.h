@@ -85,13 +85,13 @@ public:
 
 	// Collision detection
 	// Based on code from lazyfoo.net
-	static bool Collision(rect_t<int> A, rect_t<int> B)
+	static bool Collision(rect_t<T> A, rect_t<T> B)
 	{
 		// the sides of the rectangles
-		int leftA, leftB;
-		int rightA, rightB;
-		int topA, topB;
-		int bottomA, bottomB;
+		T leftA, leftB;
+		T rightA, rightB;
+		T topA, topB;
+		T bottomA, bottomB;
 
 		// Calculate sides of rectA
 		leftA = A.x;
@@ -159,4 +159,12 @@ struct drawable_t
 		this->strFont = "";
 		this->strSize = 18;
 	}
+};
+
+// PHYSICS INFORMATION
+struct physics_t
+{
+	float acc; // Acceleration, added to velocity per frame
+	vec2_t<float> vel; // Velocity (x and y)
+	vec2_t<float> maxVel; // Maximum allowed velocity
 };

@@ -17,7 +17,7 @@ void mmdcActorEvents::Register(act_event_t eventType, mmdcActor *actor)
 	}
 }
 
-void mmdcActorEvents::SendInput(inputs_t inputs, int dt)
+void mmdcActorEvents::SendInput(inputs_t inputs)
 {
-	input.emit(inputs, dt);
+	input.emit(inputs);
 }

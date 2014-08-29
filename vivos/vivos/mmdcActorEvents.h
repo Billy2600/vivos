@@ -12,7 +12,7 @@ class mmdcActorEvents
 {
 private:
 	// Signals for types of events
-	sigslot::signal2<inputs_t, int>		input;
+	sigslot::signal1<inputs_t>		input;
 
 public:
 	mmdcActorEvents(void);
@@ -22,6 +22,6 @@ public:
 	void Register(act_event_t, mmdcActor*);
 
 	// Send input event
-	void SendInput(inputs_t, int);
+	void SendInput(inputs_t);
 };
 

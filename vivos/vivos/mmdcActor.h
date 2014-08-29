@@ -15,34 +15,32 @@ class mmdcActor :
 protected:
 
 	// Components
-	vec2_t<float>					pos; // World position
 	std::shared_ptr<drawable_t>		cmpSprite; // Sprite
-	std::shared_ptr<rect_t<int>>	cmpHitbox; // Hitbox
+	std::shared_ptr<rect_t<float>>	cmpHitbox; // Hitbox
+	std::shared_ptr<physics_t>		cmpPhysics; // Physics information
 
 public:
 
 	// Get functions
-	vec2_t<float> GetPos() { return pos; }
 	std::shared_ptr<drawable_t> GetSprite() { return cmpSprite; }
-	std::shared_ptr<rect_t<int>> GetHitbox() { return cmpHitbox; }
+	std::shared_ptr<rect_t<float>> GetHitbox() { return cmpHitbox; }
+	std::shared_ptr<physics_t> GetPhysics() { return cmpPhysics; }
 
 	// Constructor
 	mmdcActor(float x=0.f, float y=0.f)
 	{
-		// Set position
-		pos.x = x;
-		pos.y = y;
 		// Init all components to null
 		cmpSprite = NULL;
 		cmpHitbox = NULL;
+		cmpPhysics = NULL;
 	}
 
 	// Event responses
 
 	// Input
-	virtual void OnInput(inputs_t inputs, int dt) {}
+	virtual void OnInput(inputs_t inputs) {}
 	// Collision
-	virtual void OnCollision(mmdcActor *) { }
+	virtual void OnCollision(std::shared_ptr<mmdcActor>) { }
 
 	// Think
 	// Runs every frame

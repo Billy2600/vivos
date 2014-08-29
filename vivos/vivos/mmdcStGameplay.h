@@ -12,8 +12,7 @@ class mmdcStGameplay :
 	public mmdcGameState
 {
 private:
-	std::shared_ptr<mmdcActPlayer>	player;
-	std::shared_ptr<mmdcActPlayer>	player2;
+	std::vector < std::shared_ptr<mmdcActor> >	objects; // Object list
 	mmdcActorEvents events;
 
 public:

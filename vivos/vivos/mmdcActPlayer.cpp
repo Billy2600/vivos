@@ -5,34 +5,56 @@ mmdcActPlayer::mmdcActPlayer(float x, float y)
 	: mmdcActor(x,y)
 {
 	// Initialize components
-	speed = 0.5f;
+
 	// Sprite
-	cmpSprite = std::shared_ptr<drawable_t>(new drawable_t(pos.x,pos.y));
+	cmpSprite = std::shared_ptr<drawable_t>(new drawable_t(x,y));
 	//cmpSprite->fillColor = color_t(0, 255, 0, 255);
 	cmpSprite->texPosition = rect_t<int>(0, 0, 48, 48);
 	cmpSprite->texFilename = "winchester.png";
 
 	// Hitbox
-	cmpHitbox = std::shared_ptr<rect_t<int>>(new rect_t<int>(0,0,48,40));
+	cmpHitbox = std::shared_ptr<rect_t<float>>(new rect_t<float>(x,y,48,40));
+
+	// Physics
+	cmpPhysics = std::shared_ptr<physics_t>(new physics_t());
+	cmpPhysics->acc = 0.5f;
+	cmpPhysics->maxVel = vec2_t<float>(10,10);
 }
 
-void mmdcActPlayer::OnInput(inputs_t inputs, int dt)
+void mmdcActPlayer::OnInput(inputs_t inputs)
 {
-	// Move player on input
-	if (inputs.up == true)
-		pos.y += speed * dt;
-	if (inputs.down == true)
-		pos.y -= speed * dt;
-	if (inputs.right == true)
-		pos.x += speed * dt;
-	if (inputs.left == true)
-		pos.x -= speed * dt;
+	// Add to velocity based on key press
+	if (inputs.up)
+		cmpPhysics->vel.y += cmpPhysics->acc;
+	if (inputs.down)
+		cmpPhysics->vel.y -= cmpPhysics->acc;
+	if (inputs.right)
+		cmpPhysics->vel.x += cmpPhysics->acc;
+	if (inputs.left)
+		cmpPhysics->vel.x -= cmpPhysics->acc;
+
+	// Slow player down, eventually to stopped position, on key release
+	if (!inputs.up && cmpPhysics->vel.y > 0)
+		cmpPhysics->vel.y -= cmpPhysics->acc;
+	if (!inputs.down && cmpPhysics->vel.y < 0)
+		cmpPhysics->vel.y += cmpPhysics->acc;
+	if (!inputs.right && cmpPhysics->vel.x > 0)
+		cmpPhysics->vel.x -= cmpPhysics->acc;
+	if (!inputs.left && cmpPhysics->vel.x < 0)
+		cmpPhysics->vel.x += cmpPhysics->acc;
+}
+
+void mmdcActPlayer::OnCollision(std::shared_ptr<mmdcActor>)
+{
+	
 }
 
 void mmdcActPlayer::Think(int dt)
 {
+	// Move hitbox based on velocity
+	cmpHitbox->x += cmpPhysics->vel.x;
+	cmpHitbox->y += cmpPhysics->vel.y;
+
 	// Move sprite to position
-	cmpSprite->pos = pos;
-	cmpHitbox->x = pos.x;
-	cmpHitbox->y = pos.y;
+	cmpSprite->pos = vec2_t<float>(cmpHitbox->x, cmpHitbox->y);
 }
