@@ -53,8 +53,9 @@ int main()
 	{
 		// Get real time
 		int realTime = clock.getElapsedTime().asMilliseconds();
-		std::cout << realTime << std::endl << simulationTime;
+
 		system("cls");
+		std::cout << realTime << std::endl << simulationTime << std::endl;
 
 		// Handle events
 		static bool focus = true; // Whether the window has focus or not

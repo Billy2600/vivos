@@ -15,7 +15,7 @@ class mmdcActor :
 protected:
 
 	// Components
-	vec2_t<float>						pos; // World position
+	vec2_t<float>					pos; // World position
 	std::shared_ptr<drawable_t>		cmpSprite; // Sprite
 	std::shared_ptr<rect_t<int>>	cmpHitbox; // Hitbox
 
@@ -41,6 +41,8 @@ public:
 
 	// Input
 	virtual void OnInput(inputs_t inputs, int dt) {}
+	// Collision
+	virtual void OnCollision(mmdcActor *) { }
 
 	// Think
 	// Runs every frame

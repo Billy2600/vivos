@@ -6,14 +6,15 @@
 #include "mmdcGameState.h"
 #include "mmdcDataTypes.h"
 #include "mmdcActPlayer.h"
-#include "sigslot.h"
+#include "mmdcActorEvents.h"
 
 class mmdcStGameplay :
 	public mmdcGameState
 {
 private:
 	std::shared_ptr<mmdcActPlayer>	player;
-	sigslot::signal2<inputs_t, int> testSig;
+	std::shared_ptr<mmdcActPlayer>	player2;
+	mmdcActorEvents events;
 
 public:
 	void Start();

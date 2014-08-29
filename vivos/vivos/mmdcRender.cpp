@@ -43,5 +43,19 @@ void mmdcRender::Draw(std::vector<drawable_t> objects, sf::RenderWindow &window)
 		sprite.setOrigin((float)objects[i].origin.x, (float)objects[i].origin.y);
 
 		window.draw(sprite);
+
+		// Draw text, if applicable
+		if(objects[i].string != "")
+		{
+			sf::Text text;
+			sf::Font font;
+			font.loadFromFile(ASSETS_FOLDER + objects[i].strFont);
+			text.setFont(font);
+			text.setString(objects[i].string);
+			text.setPosition(objects[i].pos.x, objects[i].pos.y);
+			text.setColor(ConvertColor(objects[i].fillColor));
+			text.setCharacterSize(objects[i].strSize);
+			window.draw(text);
+		}
 	}
 }

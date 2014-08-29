@@ -26,6 +26,9 @@ typedef __int32 int32_t;
 // CARDINAL DIRECTIONS
 enum cardinal_t { N, NE, E, SE, S, SW, W, NW };
 
+// ACTOR EVENT TYPES
+enum act_event_t { EV_INPUT, EV_COLLIS };
+
 // INPUT ABSTRACTIONS
 struct inputs_t
 {
@@ -79,6 +82,41 @@ public:
 		this->w = w;
 		this->h = h;
 	}
+
+	// Collision detection
+	// Based on code from lazyfoo.net
+	static bool Collision(rect_t<int> A, rect_t<int> B)
+	{
+		// the sides of the rectangles
+		int leftA, leftB;
+		int rightA, rightB;
+		int topA, topB;
+		int bottomA, bottomB;
+
+		// Calculate sides of rectA
+		leftA = A.x;
+		rightA = A.x + A.w;
+		topA = A.y;
+		bottomA = A.y + A.h;
+		// Calculate sides of rectB
+		leftB = B.x;
+		rightB = B.x + B.w;
+		topB = B.y;
+		bottomB = B.y + B.h;
+
+		// If any of the sides from A are outside B
+		if(bottomA <= topB)
+			return false;
+		if(topA >= bottomB)
+			return false;
+		if(rightA <= leftB)
+			return false;
+		if(leftA >= rightB)
+			return false;
+
+		// if none of the sides from A are outside B
+		return true;
+	}
 };
 
 // RGBA COLOR
@@ -107,11 +145,18 @@ struct drawable_t
 	vec2_t<int> origin; // Origin of sprite (in pixels)
 	color_t fillColor; // Fill color
 
+	std::string string; // Text string, must have at least one character for text to show
+	std::string strFont; // Filename of font
+	unsigned int strSize; // Text size
+
 	// Constructor
 	drawable_t(float x=0, float y=0)
 	{
 		this->pos.x = x;
 		this->pos.y = y;
 		this->texFilename = "";
+		this->string = "";
+		this->strFont = "";
+		this->strSize = 18;
 	}
 };
