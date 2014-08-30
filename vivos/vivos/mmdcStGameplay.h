@@ -4,16 +4,11 @@
 	===========================================================*/
 #pragma once
 #include "mmdcGameState.h"
-#include "mmdcDataTypes.h"
-#include "mmdcActPlayer.h"
-#include "mmdcActorEvents.h"
 
 class mmdcStGameplay :
 	public mmdcGameState
 {
 private:
-	std::vector < std::shared_ptr<mmdcActor> >	objects; // Object list
-	mmdcActorEvents events;
 
 public:
 	void Start();

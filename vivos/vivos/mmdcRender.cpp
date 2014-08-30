@@ -44,7 +44,7 @@ void mmdcRender::Draw(std::vector<drawable_t> objects, sf::RenderWindow &window)
 				objects[i].texPosition.h)
 				);
 			sprite.setOrigin((float)objects[i].origin.x, (float)objects[i].origin.y);
-
+			sprite.setRotation(objects[i].angle);
 			window.draw(sprite);
 		}
 

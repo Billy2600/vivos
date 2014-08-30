@@ -2,9 +2,9 @@
 
 void mmdcStGameplay::Start()
 {
-	objects.push_back(std::shared_ptr<mmdcActPlayer>(new mmdcActPlayer(0, 0)));
-	objects.push_back(std::shared_ptr<mmdcActPlayer>(new mmdcActPlayer(100, -100)));
-	events.Register(EV_INPUT, &*objects[0]);
+	actors.push_back(std::shared_ptr<mmdcActPlayer>(new mmdcActPlayer(0, 0)));
+	actors.push_back(std::shared_ptr<mmdcActPlayer>(new mmdcActPlayer(100, -100)));
+	events.Register(EV_INPUT, &*actors[0]);
 }
 
 void mmdcStGameplay::Update(int dt, inputs_t inputs)
@@ -13,21 +13,26 @@ void mmdcStGameplay::Update(int dt, inputs_t inputs)
 	events.SendInput(inputs);
 
 	// Make objects think
-	for (unsigned int i = 0; i < objects.size(); i++)
+	for (unsigned int i = 0; i < actors.size(); i++)
 	{
-		objects[i]->Think(dt);
+		actors[i]->Think(dt);
 	}
+
+	bool b = TryMove(0, actors[0]->newPos.x, actors[0]->newPos.y);
+	if (!b) b = TryMove(0, actors[0]->newPos.x, actors[0]->GetHitbox()->y);
+	if (!b) b = TryMove(0, actors[0]->GetHitbox()->x, actors[0]->newPos.y);
 }
 
 std::vector<drawable_t> mmdcStGameplay::Draw() const
 {
 	// Add drawable objects to a list
 	std::vector<drawable_t> drawObjs;
-	for (unsigned int i = 0; i < objects.size(); i++)
+	for (unsigned int i = 0; i < actors.size(); i++)
 	{
-		if (objects[i]->GetSprite() != NULL)
-			drawObjs.push_back(*objects[i]->GetSprite());
+		if (actors[i]->GetSprite() != NULL)
+			drawObjs.push_back(*actors[i]->GetSprite());
 	}
+	
 	// Return list
 	return drawObjs;
 }

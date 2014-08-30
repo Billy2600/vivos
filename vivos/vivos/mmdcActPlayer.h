@@ -9,6 +9,7 @@ class mmdcActPlayer :
 	public mmdcActor
 {
 private:
+	const float moveSpeed = 5.f; // Movement speed
 
 public:
 	mmdcActPlayer(float x = 0.f, float y = 0.f);

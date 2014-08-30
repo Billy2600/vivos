@@ -23,6 +23,9 @@ typedef unsigned __int8 uint8_t;
 typedef __int16 int16_t;
 typedef __int32 int32_t;
 
+// POSSIBLE STATES
+enum states_t { ST_TITLE, ST_GAMEPLAY };
+
 // CARDINAL DIRECTIONS
 enum cardinal_t { N, NE, E, SE, S, SW, W, NW };
 
@@ -51,9 +54,8 @@ struct inputs_t
 // VECTOR2
 // X and Y position
 template <class T>
-class vec2_t
+struct vec2_t
 {
-public:
 	T x;
 	T y;
 
@@ -67,9 +69,8 @@ public:
 // RECT
 // Rectangle/box
 template <class T>
-class rect_t
+struct rect_t
 {
-public:
 	T x;
 	T y;
 	T w;
@@ -144,6 +145,7 @@ struct drawable_t
 	rect_t<int> texPosition; // position of sprite on texture (in pixels), also determines the size of the sprite
 	vec2_t<int> origin; // Origin of sprite (in pixels)
 	color_t fillColor; // Fill color
+	float angle; // Angle (in degrees)
 
 	std::string string; // Text string, must have at least one character for text to show
 	std::string strFont; // Filename of font
@@ -155,16 +157,9 @@ struct drawable_t
 		this->pos.x = x;
 		this->pos.y = y;
 		this->texFilename = "";
+		this->angle = 0;
 		this->string = "";
 		this->strFont = "";
 		this->strSize = 18;
 	}
-};
-
-// PHYSICS INFORMATION
-struct physics_t
-{
-	float acc; // Acceleration, added to velocity per frame
-	vec2_t<float> vel; // Velocity (x and y)
-	vec2_t<float> maxVel; // Maximum allowed velocity
 };

@@ -8,9 +8,8 @@
 #include <queue>
 #include <vector>
 #include "mmdcDataTypes.h"
-
-// Possible states
-enum states_t { ST_TITLE, ST_GAMEPLAY };
+#include "mmdcActPlayer.h"
+#include "mmdcActorEvents.h"
 
 class mmdcGameState
 {
@@ -19,6 +18,8 @@ protected:
 	states_t changeTo; // State we want to change to
 	bool change; // Change state flag
 	bool pause; // Pause logic
+	std::vector < std::shared_ptr<mmdcActor> >	actors; // Actor list
+	mmdcActorEvents events; // Actor event handler
 
 public:
 
@@ -57,5 +58,10 @@ public:
 	// STOP
 	// Runs after you change game state or close the program
 	virtual void Stop() = 0;
+
+	// TRY MOVE
+	// Actor broadcasts where it'd like to move, this function checks if its a valid move
+	// and if it is, moves it.
+	bool TryMove(int index, float x, float y);
 };
 

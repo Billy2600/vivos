@@ -2,7 +2,6 @@
 	Render
 	Renders things to the screen, based on data given from the
 	game logic.
-	Please note that world position Y's are flipped
 	===========================================================*/
 #pragma once
 #include <SFML/Graphics.hpp>
