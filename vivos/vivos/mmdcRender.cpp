@@ -21,7 +21,7 @@ mmdcRender::mmdcRender()
 {
 }
 
-void mmdcRender::Draw(std::vector<drawable_t> objects, sf::RenderWindow &window) const
+void mmdcRender::Draw(std::vector<drawable_t> objects, sf::RenderWindow &window)
 {
 	// Loop through and draw the objects given
 	for(unsigned int i=0; i < objects.size(); i++)
@@ -31,10 +31,8 @@ void mmdcRender::Draw(std::vector<drawable_t> objects, sf::RenderWindow &window)
 		{
 			// Convert to sfml object
 			sf::Sprite sprite;
-			sf::Texture texture;
 			// Load texture
-			texture.loadFromFile(ASSETS_FOLDER + objects[i].texFilename);
-			sprite.setTexture(texture);
+			sprite.setTexture( *manager.LoadTexture(objects[i].texFilename));
 			sprite.setColor(ConvertColor(objects[i].fillColor));
 			sprite.setPosition(objects[i].pos.x, -objects[i].pos.y);
 			sprite.setTextureRect(
@@ -52,9 +50,7 @@ void mmdcRender::Draw(std::vector<drawable_t> objects, sf::RenderWindow &window)
 		if(objects[i].string != "")
 		{
 			sf::Text text;
-			sf::Font font;
-			font.loadFromFile(ASSETS_FOLDER + objects[i].strFont);
-			text.setFont(font);
+			text.setFont(*manager.LoadFont(objects[i].strFont));
 			text.setString(objects[i].string);
 			text.setPosition(objects[i].pos.x, objects[i].pos.y);
 			text.setColor(ConvertColor(objects[i].fillColor));
