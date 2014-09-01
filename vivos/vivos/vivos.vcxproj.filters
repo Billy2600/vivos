@@ -42,6 +42,9 @@
     <ClCompile Include="mmdcGameState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="mmdcEventDataTypes.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mmdcGameState.h">
@@ -60,9 +63,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="mmdcRender.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="sigslot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="mmdcStGameplay.h">

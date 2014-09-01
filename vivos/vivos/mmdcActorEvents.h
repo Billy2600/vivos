@@ -5,23 +5,30 @@
 	those events to it when they happen
 	===========================================================*/
 #pragma once
+#include <queue>
+#include <memory> 
 #include "mmdcActor.h"
-#include "sigslot.h"
+#include "mmdcEventDataTypes.h"
 
 class mmdcActorEvents
 {
 private:
-	// Signals for types of events
-	sigslot::signal1<inputs_t>		input;
+	// Event queue
+	std::queue<std::shared_ptr<event_t>>		 qEvent;
+	// Pointer to actor vector
+	std::vector<std::shared_ptr<mmdcActor>>		 *actors;
 
 public:
-	mmdcActorEvents(void);
-	
-	// Register with system
-	// Must give event type, and pointer to actor
-	void Register(act_event_t, mmdcActor*);
+	mmdcActorEvents();
 
-	// Send input event
-	void SendInput(inputs_t);
+	// Give us actor list
+	void SetActorList(std::vector<std::shared_ptr<mmdcActor>>*);
+
+	// Add event
+	void AddEvent(std::shared_ptr<event_t>);
+
+	// Dispatch events
+	// Sends events out to their targets
+	void DispatchEvents();
 };
 

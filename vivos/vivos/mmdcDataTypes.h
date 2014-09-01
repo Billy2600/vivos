@@ -29,9 +29,6 @@ enum states_t { ST_TITLE, ST_GAMEPLAY };
 // CARDINAL DIRECTIONS
 enum cardinal_t { N, NE, E, SE, S, SW, W, NW };
 
-// ACTOR EVENT TYPES
-enum act_event_t { EV_INPUT, EV_COLLIS };
-
 // INPUT ABSTRACTIONS
 struct inputs_t
 {

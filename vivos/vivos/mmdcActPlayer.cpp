@@ -30,7 +30,7 @@ void mmdcActPlayer::OnInput(inputs_t inputs)
 
 void mmdcActPlayer::OnCollision(std::shared_ptr<mmdcActor> otherActor)
 {
-	
+	std::cout << "Collided with actor ID: " << otherActor->GetID() << std::endl;
 }
 
 void mmdcActPlayer::Think(int dt)

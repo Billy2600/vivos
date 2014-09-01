@@ -76,6 +76,7 @@
     <ClCompile Include="mmdcActor.cpp" />
     <ClCompile Include="mmdcActorEvents.cpp" />
     <ClCompile Include="mmdcActPlayer.cpp" />
+    <ClCompile Include="mmdcEventDataTypes.h" />
     <ClCompile Include="mmdcGameState.cpp" />
     <ClCompile Include="mmdcStGameplay.cpp" />
     <ClCompile Include="mmdcInput.cpp" />
@@ -92,7 +93,6 @@
     <ClInclude Include="mmdcInput.h" />
     <ClInclude Include="mmdcRender.h" />
     <ClInclude Include="mmdcStTitlescreen.h" />
-    <ClInclude Include="sigslot.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -2,15 +2,21 @@
 
 void mmdcStGameplay::Start()
 {
+	events.SetActorList(&actors);
 	actors.push_back(std::shared_ptr<mmdcActPlayer>(new mmdcActPlayer(0, 0)));
 	actors.push_back(std::shared_ptr<mmdcActPlayer>(new mmdcActPlayer(100, -100)));
-	events.Register(EV_INPUT, &*actors[0]);
 }
 
 void mmdcStGameplay::Update(int dt, inputs_t inputs)
 {
 	// Send input event
-	events.SendInput(inputs);
+	std::shared_ptr<event_t> evInput = std::shared_ptr<ev_input_t>(new ev_input_t());
+	evInput->targetId = 1;
+	std::dynamic_pointer_cast<ev_input_t>(evInput)->inputs = inputs;
+	events.AddEvent(evInput);
+
+	// Dispatch events
+	events.DispatchEvents();
 
 	// Make objects think
 	for (unsigned int i = 0; i < actors.size(); i++)

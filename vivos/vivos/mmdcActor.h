@@ -6,14 +6,18 @@
 #pragma once
 #include <memory>
 #include <iostream>
+#include <atomic>
 #include "mmdcDataTypes.h"
-#include "sigslot.h"
+#include "mmdcEventDataTypes.h"
 
-class mmdcActor :
-	public sigslot::has_slots<>
+class mmdcActor 
 {
 protected:
-
+	// Unique ID
+	int aId;
+	// Shared ID incrementor
+	static std::atomic<int> sId;
+	
 	// Components
 	std::shared_ptr<drawable_t>		cmpSprite; // Sprite
 	std::shared_ptr<rect_t<float>>	cmpHitbox; // Hitbox
@@ -22,18 +26,25 @@ public:
 	vec2_t<float>  newPos; // New position
 
 	// Get functions
+	int GetID() const { return aId; }
 	std::shared_ptr<drawable_t> GetSprite() const { return cmpSprite; }
 	std::shared_ptr<rect_t<float>> GetHitbox() const { return cmpHitbox; }
 
 	// Constructor
 	mmdcActor(float x=0.f, float y=0.f)
 	{
+		// Set ID
+		aId = sId++;
 		// Init all components to null
 		cmpSprite = NULL;
 		cmpHitbox = NULL;
 	}
 
 	// Event responses
+
+	// Read event
+	// Reads event an interpets it
+	void ReadEvent(std::shared_ptr<event_t>);
 
 	// Input
 	virtual void OnInput(inputs_t inputs) {}
