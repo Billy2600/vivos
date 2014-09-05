@@ -26,13 +26,12 @@ void mmdcRender::Draw(std::vector<drawable_t> objects, sf::RenderWindow &window)
 	// Loop through and draw the objects given
 	for(unsigned int i=0; i < objects.size(); i++)
 	{
-		// Draw image
+		// Draw object as sprite
 		if (objects[i].texFilename != "")
 		{
-			// Convert to sfml object
 			sf::Sprite sprite;
-			// Load texture
-			sprite.setTexture( *manager.LoadTexture(objects[i].texFilename));
+			if (manager.LoadTexture(objects[i].texFilename) != NULL)
+				sprite.setTexture(*manager.LoadTexture(objects[i].texFilename));
 			sprite.setColor(ConvertColor(objects[i].fillColor));
 			sprite.setPosition(objects[i].pos.x, -objects[i].pos.y);
 			sprite.setTextureRect(
@@ -45,8 +44,19 @@ void mmdcRender::Draw(std::vector<drawable_t> objects, sf::RenderWindow &window)
 			sprite.setRotation(objects[i].angle);
 			window.draw(sprite);
 		}
+		// Draw object as shape
+		else
+		{
+			sf::RectangleShape shape;
+			shape.setFillColor(ConvertColor(objects[i].fillColor));
+			shape.setPosition(sf::Vector2f((float)objects[i].pos.x, -(float)objects[i].pos.y));
+			shape.setRotation(objects[i].angle);
+			shape.setSize(sf::Vector2f((float)objects[i].texPosition.w, (float)objects[i].texPosition.h));
+			window.draw(shape);
+		}
 
 		// Draw text, if applicable
+		// Shapes and sprites can also have text
 		if(objects[i].string != "")
 		{
 			sf::Text text;

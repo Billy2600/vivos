@@ -22,3 +22,10 @@ struct ev_input_t
 {
 	inputs_t inputs;
 };
+
+// Remove object
+struct ev_remove_t
+	: event_t
+{
+	int poop;
+};

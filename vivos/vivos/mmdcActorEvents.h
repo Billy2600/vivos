@@ -7,25 +7,25 @@
 #pragma once
 #include <queue>
 #include <memory> 
-#include "mmdcActor.h"
+#include "mmdcEventReader.h"
 #include "mmdcEventDataTypes.h"
 
 class mmdcActorEvents
 {
 private:
 	// Event queue
-	std::queue<std::shared_ptr<event_t>>		 qEvent;
+	static std::queue<std::shared_ptr<event_t>>		qEvent;
 	// Pointer to actor vector
-	std::vector<std::shared_ptr<mmdcActor>>		 *actors;
+	std::vector<std::shared_ptr<mmdcEventReader>>	*actors;
 
 public:
 	mmdcActorEvents();
 
 	// Give us actor list
-	void SetActorList(std::vector<std::shared_ptr<mmdcActor>>*);
+	void SetActorList(std::vector<std::shared_ptr<mmdcEventReader>>*);
 
 	// Add event
-	void AddEvent(std::shared_ptr<event_t>);
+	static void AddEvent(std::shared_ptr<event_t>);
 
 	// Dispatch events
 	// Sends events out to their targets

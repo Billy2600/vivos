@@ -10,10 +10,12 @@ void mmdcStGameplay::Start()
 void mmdcStGameplay::Update(int dt, inputs_t inputs)
 {
 	// Send input event
-	std::shared_ptr<event_t> evInput = std::shared_ptr<ev_input_t>(new ev_input_t());
+	/*std::shared_ptr<ev_input_t> evInput = std::shared_ptr<ev_input_t>(new ev_input_t());
 	evInput->targetId = 1;
-	std::dynamic_pointer_cast<ev_input_t>(evInput)->inputs = inputs;
-	events.AddEvent(evInput);
+	evInput->inputs = inputs;*/
+	//mmdcActorEvents::AddEvent(evInput);
+
+	actors[0]->OnInput(inputs);
 
 	// Dispatch events
 	events.DispatchEvents();
@@ -21,12 +23,16 @@ void mmdcStGameplay::Update(int dt, inputs_t inputs)
 	// Make objects think
 	for (unsigned int i = 0; i < actors.size(); i++)
 	{
-		actors[i]->Think(dt);
+		std::shared_ptr<mmdcActor> curActor = std::dynamic_pointer_cast<mmdcActor>(actors[i]);
+		curActor->Think(dt);
+
+		bool b = TryMove(0, curActor->newPos.x, curActor->newPos.y);
+		if (!b) b = TryMove(0, curActor->newPos.x, curActor->GetHitbox()->y);
+		if (!b) b = TryMove(0, curActor->GetHitbox()->x, curActor->newPos.y);
 	}
 
-	bool b = TryMove(0, actors[0]->newPos.x, actors[0]->newPos.y);
-	if (!b) b = TryMove(0, actors[0]->newPos.x, actors[0]->GetHitbox()->y);
-	if (!b) b = TryMove(0, actors[0]->GetHitbox()->x, actors[0]->newPos.y);
+	// Remove objects
+	RemoveActors();
 }
 
 std::vector<drawable_t> mmdcStGameplay::Draw() const
@@ -35,8 +41,18 @@ std::vector<drawable_t> mmdcStGameplay::Draw() const
 	std::vector<drawable_t> drawObjs;
 	for (unsigned int i = 0; i < actors.size(); i++)
 	{
-		if (actors[i]->GetSprite() != NULL)
-			drawObjs.push_back(*actors[i]->GetSprite());
+		std::shared_ptr<mmdcActor> curActor = std::dynamic_pointer_cast<mmdcActor>(actors[i]);
+		if (curActor->GetSprite() != NULL)
+			drawObjs.push_back(*curActor->GetSprite());
+		if (curActor->GetHitbox() != NULL)
+		{
+			drawable_t hitbox;
+			hitbox.pos.x = curActor->GetHitbox()->x;
+			hitbox.pos.y = curActor->GetHitbox()->y;
+			hitbox.texPosition = rect_t<int>(150, 150, curActor->GetHitbox()->w, curActor->GetHitbox()->h);
+			hitbox.fillColor = color_t(0, 255, 0, 100);
+			drawObjs.push_back(hitbox);
+		}
 	}
 	
 	// Return list

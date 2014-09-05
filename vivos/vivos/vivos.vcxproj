@@ -78,6 +78,7 @@
     <ClCompile Include="mmdcActPlayer.cpp" />
     <ClCompile Include="mmdcAssetManager.cpp" />
     <ClCompile Include="mmdcEventDataTypes.h" />
+    <ClCompile Include="mmdcEventReader.cpp" />
     <ClCompile Include="mmdcGameState.cpp" />
     <ClCompile Include="mmdcStGameplay.cpp" />
     <ClCompile Include="mmdcInput.cpp" />
@@ -90,6 +91,7 @@
     <ClInclude Include="mmdcActPlayer.h" />
     <ClInclude Include="mmdcAssetManager.h" />
     <ClInclude Include="mmdcDataTypes.h" />
+    <ClInclude Include="mmdcEventReader.h" />
     <ClInclude Include="mmdcStGameplay.h" />
     <ClInclude Include="mmdcGameState.h" />
     <ClInclude Include="mmdcInput.h" />

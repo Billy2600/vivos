@@ -1,11 +1,12 @@
 #include "mmdcActorEvents.h"
 
+std::queue<std::shared_ptr<event_t>> mmdcActorEvents::qEvent = std::queue<std::shared_ptr<event_t>>();
 
 mmdcActorEvents::mmdcActorEvents()
 {
 }
 
-void mmdcActorEvents::SetActorList(std::vector<std::shared_ptr<mmdcActor>> *actors)
+void mmdcActorEvents::SetActorList(std::vector<std::shared_ptr<mmdcEventReader>> *actors)
 {
 	this->actors = actors;
 }
@@ -24,18 +25,22 @@ void mmdcActorEvents::DispatchEvents()
 		int actorPos = -1; // Actor position in vector 
 		for (int j = 0; j < actors->size(); i++)
 		{
-			if (actors[0][i]->GetID() == qEvent.back()->targetId)
+			if (actors[j][0]->GetID() == qEvent.back()->targetId)
 			{
-				actorPos = i;
+				actorPos = j;
 				break;
 			}
 		}
 		// Did we find it?
 		if (actorPos == -1)
-			return; // Not found
+		{
+			// Not found
+			return;
+			qEvent.pop();
+		}
 
 		// Found it, let's give it the event
-		actors[0][actorPos]->ReadEvent(qEvent.back());
+		actors[actorPos][0]->ReadEvent(qEvent.back());
 		// Get rid of the event
 		qEvent.pop();
 	}
