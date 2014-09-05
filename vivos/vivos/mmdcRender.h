@@ -8,14 +8,10 @@
 #include <iostream>
 #include <vector>
 #include "mmdcDataTypes.h"
-#include "mmdcAssetManager.h"
 
 class mmdcRender
 {
 private:
-	// Asset manager
-	mmdcAssetManager manager;
-
 	// Convert interal data types to SFML types
 	sf::Color ConvertColor(color_t) const;
 	sf::Vector2f ConvertVecf(vec2_t<float>) const;
@@ -26,6 +22,6 @@ public:
 
 	// Draw to screen
 	// Must be given vector of drawable objects, and the window handler
-	void Draw(std::vector<drawable_t>, sf::RenderWindow &);
+	void Draw(std::vector<drawable_t>, sf::RenderWindow &) const;
 };
 

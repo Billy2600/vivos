@@ -7,7 +7,6 @@
 #include <string>
 
 // DEFINES
-
 // Assets folder
 #ifdef WIN32
 #define ASSETS_FOLDER "assets\\" // Windows has to do its directories all stupid
@@ -16,7 +15,6 @@
 #endif
 
 // TYPEDEFS
-
 // Various forms of int, for ease of typing and possibly cross compiling in the future
 #ifndef VS2013 // VS2013 doesn't like this one
 typedef __int8 int8_t; // _t suffix for consistency's sake
@@ -25,17 +23,13 @@ typedef unsigned __int8 uint8_t;
 typedef __int16 int16_t;
 typedef __int32 int32_t;
 
-// ENUMS
-
-// Possible states
+// POSSIBLE STATES
 enum states_t { ST_TITLE, ST_GAMEPLAY };
 
-// Cardinal directions
+// CARDINAL DIRECTIONS
 enum cardinal_t { N, NE, E, SE, S, SW, W, NW };
 
-// STRUCTS
-
-// Input abstractions
+// INPUT ABSTRACTIONS
 struct inputs_t
 {
 	// Buttons
@@ -54,7 +48,7 @@ struct inputs_t
 	bool rRight;
 };
 
-// Vector2
+// VECTOR2
 // X and Y position
 template <class T>
 struct vec2_t
@@ -69,7 +63,7 @@ struct vec2_t
 	}
 };
 
-// Rect
+// RECT
 // Rectangle/box
 template <class T>
 struct rect_t
@@ -123,7 +117,7 @@ struct rect_t
 	}
 };
 
-// RGBA color
+// RGBA COLOR
 struct color_t
 {
 	uint8_t r; // Red
@@ -140,8 +134,7 @@ struct color_t
 	}
 };
 
-// Drawable object
-// Used to pass info to render class
+// DRAWABLE OBJECT
 struct drawable_t
 {
 	vec2_t<float> pos; // Position
@@ -166,12 +159,4 @@ struct drawable_t
 		this->strFont = "";
 		this->strSize = 18;
 	}
-};
-
-// Asset info
-// Used by asset manager to cache assets
-struct assetinfo_t
-{
-	std::string filename; // Filename of asset
-	unsigned int index; // Index in corrisponding asset manager 
 };
