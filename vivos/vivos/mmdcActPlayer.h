@@ -14,7 +14,7 @@ private:
 public:
 	mmdcActPlayer(float x = 0.f, float y = 0.f);
 	void OnInput(inputs_t inputs);
-	void OnCollision(std::shared_ptr<mmdcEventReader>);
+	void OnCollision(std::shared_ptr<mmdcActor>);
 	void Think(int dt);
 };
 

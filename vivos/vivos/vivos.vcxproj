@@ -74,10 +74,7 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mmdcActor.cpp" />
-    <ClCompile Include="mmdcActorEvents.cpp" />
     <ClCompile Include="mmdcActPlayer.cpp" />
-    <ClCompile Include="mmdcEventDataTypes.h" />
-    <ClCompile Include="mmdcEventReader.cpp" />
     <ClCompile Include="mmdcGameState.cpp" />
     <ClCompile Include="mmdcStGameplay.cpp" />
     <ClCompile Include="mmdcInput.cpp" />
@@ -86,10 +83,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mmdcActor.h" />
-    <ClInclude Include="mmdcActorEvents.h" />
     <ClInclude Include="mmdcActPlayer.h" />
     <ClInclude Include="mmdcDataTypes.h" />
-    <ClInclude Include="mmdcEventReader.h" />
     <ClInclude Include="mmdcStGameplay.h" />
     <ClInclude Include="mmdcGameState.h" />
     <ClInclude Include="mmdcInput.h" />

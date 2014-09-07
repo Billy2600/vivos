@@ -33,19 +33,10 @@
     <ClCompile Include="mmdcActPlayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="mmdcActorEvents.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="mmdcActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="mmdcGameState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="mmdcEventDataTypes.h">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="mmdcEventReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -72,12 +63,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="mmdcActPlayer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="mmdcActorEvents.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="mmdcEventReader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

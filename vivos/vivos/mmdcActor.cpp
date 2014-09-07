@@ -1,5 +1,8 @@
 #include "mmdcActor.h"
 
+// Init incrementor
+std::atomic<int> mmdcActor::sId = 1;
+
 void mmdcActor::Move(float x, float y)
 {
 	// Move to new position
