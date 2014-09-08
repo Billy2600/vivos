@@ -4,11 +4,13 @@
 	===========================================================*/
 #pragma once
 #include "mmdcGameState.h"
+#include "mmdcLevel.h"
 
 class mmdcStGameplay :
 	public mmdcGameState
 {
 private:
+	mmdcLevel level = mmdcLevel("map01.tmx");
 
 public:
 	void Start();
