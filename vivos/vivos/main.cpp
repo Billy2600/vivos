@@ -16,6 +16,7 @@ limitations under the License.
 #include <SFML/Graphics.hpp>
 #include <memory>
 #include <iostream>
+#include <Windows.h>
 #include "mmdcInput.h"
 #include "mmdcRender.h"
 

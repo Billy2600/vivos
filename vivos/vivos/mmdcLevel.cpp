@@ -16,5 +16,37 @@ void mmdcLevel::LoadLevel(std::string filename)
 		std::cout << "Cant load " + filename << std::endl;
 	}
 
-	std::cout << "Map Information:";
+	// Load tileset information
+	std::stringstream stream(reader.Get("layer", "data", "ERROR"));
+
+	// Texture filename
+	std::getline(stream, this->texture, ',');
+	// Map width/height
+	tileWidth = reader.GetInteger("header", "width", -1);
+	tileHeight = reader.GetInteger("header", "height", -1);
+	// Tile width/height
+	tileWidth = reader.GetInteger("header", "tileWidth", -1);
+	tileHeight = reader.GetInteger("header", "tileHeight", -1);
+
+	// Load tile array
+	stream = std::stringstream(reader.Get("layer", "data", "ERROR"));
+	std::string num;
+	// Load data into vector
+	while (std::getline(stream, num, ','))
+	{
+		tiles.push_back(atoi(num.c_str()));
+	}
+}
+
+std::vector<drawable_t> GetTiles()
+{
+	std::vector<drawable_t> tiles;
+
+	// Loop through tiles
+	for (unsigned int i = 0; i < tiles.size(); i++)
+	{
+		drawable_t tile;
+	}
+
+	return tiles;
 }

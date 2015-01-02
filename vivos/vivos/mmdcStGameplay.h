@@ -10,7 +10,7 @@ class mmdcStGameplay :
 	public mmdcGameState
 {
 private:
-	mmdcLevel level = mmdcLevel("map01.tmx");
+	mmdcLevel level = mmdcLevel("map01.txt");
 
 public:
 	void Start();
