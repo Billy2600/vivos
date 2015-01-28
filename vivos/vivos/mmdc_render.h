@@ -7,7 +7,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
-#include "mmdcDataTypes.h"
+#include "mmdc_data_types.h"
 
 class mmdcRender
 {

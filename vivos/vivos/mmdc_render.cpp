@@ -1,4 +1,4 @@
-#include "mmdcRender.h"
+#include "mmdc_render.h"
 
 sf::Color mmdcRender::ConvertColor(color_t oldColor) const
 {

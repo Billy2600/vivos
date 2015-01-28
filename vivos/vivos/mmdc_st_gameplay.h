@@ -3,8 +3,8 @@
 	Game state for the main gameplay
 	===========================================================*/
 #pragma once
-#include "mmdcGameState.h"
-#include "mmdcLevel.h"
+#include "mmdc_game_state.h"
+#include "mmdc_level.h"
 
 class mmdcStGameplay :
 	public mmdcGameState

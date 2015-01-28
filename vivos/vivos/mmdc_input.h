@@ -5,7 +5,7 @@
 	===========================================================*/
 #pragma once
 #include <SFML/Window.hpp>
-#include "mmdcDataTypes.h"
+#include "mmdc_data_types.h"
 
 class mmdcInput
 {

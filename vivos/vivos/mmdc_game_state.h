@@ -7,8 +7,8 @@
 #include <SFML/Graphics.hpp>
 #include <queue>
 #include <vector>
-#include "mmdcDataTypes.h"
-#include "mmdcActPlayer.h"
+#include "mmdc_data_types.h"
+#include "mmdc_act_player.h"
 
 class mmdcGameState
 {

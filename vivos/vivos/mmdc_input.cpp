@@ -1,4 +1,4 @@
-#include "mmdcInput.h"
+#include "mmdc_input.h"
 
 
 mmdcInput::mmdcInput()

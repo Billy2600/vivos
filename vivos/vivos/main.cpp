@@ -17,11 +17,11 @@ limitations under the License.
 #include <memory>
 #include <iostream>
 #include <Windows.h>
-#include "mmdcInput.h"
-#include "mmdcRender.h"
+#include "mmdc_input.h"
+#include "mmdc_render.h"
 
-#include "mmdcStTitlescreen.h"
-#include "mmdcStGameplay.h"
+#include "mmdc_st_titlescreen.h"
+#include "mmdc_st_gameplay.h"
 
 // MAIN FUNCTION //
 int main()

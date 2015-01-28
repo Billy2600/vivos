@@ -3,7 +3,7 @@
 	Controls the player
 	===========================================================*/
 #pragma once
-#include "mmdcActor.h"
+#include "mmdc_actor.h"
 
 class mmdcActPlayer :
 	public mmdcActor

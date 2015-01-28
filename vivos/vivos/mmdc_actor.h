@@ -7,7 +7,7 @@
 #include <memory>
 #include <iostream>
 #include <atomic>
-#include "mmdcDataTypes.h"
+#include "mmdc_data_types.h"
 
 class mmdcActor 
 {

@@ -75,27 +75,27 @@
     <ClCompile Include="ini.c" />
     <ClCompile Include="INIReader.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="mmdcActor.cpp" />
-    <ClCompile Include="mmdcActPlayer.cpp" />
-    <ClCompile Include="mmdcGameState.cpp" />
-    <ClCompile Include="mmdcLevel.cpp" />
-    <ClCompile Include="mmdcStGameplay.cpp" />
-    <ClCompile Include="mmdcInput.cpp" />
-    <ClCompile Include="mmdcRender.cpp" />
-    <ClCompile Include="mmdcStTitlescreen.cpp" />
+    <ClCompile Include="mmdc_actor.cpp" />
+    <ClCompile Include="mmdc_act_player.cpp" />
+    <ClCompile Include="mmdc_game_State.cpp" />
+    <ClCompile Include="mmdc_level.cpp" />
+    <ClCompile Include="mmdc_st_gameplay.cpp" />
+    <ClCompile Include="mmdc_input.cpp" />
+    <ClCompile Include="mmdc_render.cpp" />
+    <ClCompile Include="mmdc_st_titlescreen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ini.h" />
     <ClInclude Include="INIReader.h" />
-    <ClInclude Include="mmdcActor.h" />
-    <ClInclude Include="mmdcActPlayer.h" />
-    <ClInclude Include="mmdcDataTypes.h" />
-    <ClInclude Include="mmdcLevel.h" />
-    <ClInclude Include="mmdcStGameplay.h" />
-    <ClInclude Include="mmdcGameState.h" />
-    <ClInclude Include="mmdcInput.h" />
-    <ClInclude Include="mmdcRender.h" />
-    <ClInclude Include="mmdcStTitlescreen.h" />
+    <ClInclude Include="mmdc_actor.h" />
+    <ClInclude Include="mmdc_act_player.h" />
+    <ClInclude Include="mmdc_data_types.h" />
+    <ClInclude Include="mmdc_level.h" />
+    <ClInclude Include="mmdc_st_gameplay.h" />
+    <ClInclude Include="mmdc_game_state.h" />
+    <ClInclude Include="mmdc_input.h" />
+    <ClInclude Include="mmdc_render.h" />
+    <ClInclude Include="mmdc_st_titlescreen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

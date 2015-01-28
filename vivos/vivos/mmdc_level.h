@@ -9,7 +9,7 @@
 #include <iostream>
 #include <sstream>
 #include "INIReader.h"
-#include "mmdcDataTypes.h"
+#include "mmdc_data_types.h"
 
 class mmdcLevel
 {
